@@ -15,11 +15,11 @@ class LmaApplicationTests {
 	@Autowired
 	private CompanyRepository companyRepository;
 
-	@Test
-	public void testCreateCompany(){
-		Company company = new Company(1l,"Google",new Date(),"0747454745");
-		companyRepository.save(company);
-	}
+//	@Test
+//	public void testCreateCompany(){
+//		Company company = new Company(1l,"Google",new Date(),"0747454745");
+//		companyRepository.save(company);
+//	}
 
 	@Test
 	public void testFindCompany(){

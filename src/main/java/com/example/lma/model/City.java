@@ -1,6 +1,5 @@
 package com.example.lma.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,8 +7,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import java.util.Date;
+import javax.persistence.OneToMany;
+
+import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -17,13 +17,11 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Company {
+public class City {
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private  Long id;
+    private Long id;
     private  String name;
-    private Date createdAt;
-    private String phone;
-    @ManyToOne
-    private City city;
+    @OneToMany(mappedBy = "city")
+    private List<Company> companys;
 }
