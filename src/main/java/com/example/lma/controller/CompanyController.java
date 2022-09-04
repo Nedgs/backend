@@ -26,14 +26,14 @@ public class CompanyController {
         return companyService.getCompany(id);
     }
 
-    @PostMapping("/company/save")
-    public Company CreateCompany(@RequestBody Company company){
-        return companyService.saveCompany(company);
+    @PostMapping("company/save")
+    public Company CreateCompany(@RequestBody Company company, @RequestParam(name = "cityName",defaultValue = "Ville") String cityName){
+        return companyService.saveCompany(company, cityName);
     }
 
     @PutMapping("/company/save")
-    public Company UpdateCompany(@RequestBody Company company){
-        return companyService.updateCompany(company);
+    public Company UpdateCompany(@RequestBody Company company, @RequestParam(name = "cityName", defaultValue = "Ville") String cityName){
+        return companyService.updateCompany(company, cityName);
     }
 
     @DeleteMapping("/company/delete/{id}")

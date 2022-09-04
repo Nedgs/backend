@@ -4,6 +4,7 @@ package com.example.lma.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +23,8 @@ public class Company {
     @GeneratedValue(strategy = IDENTITY)
     private  Long id;
     private  String name;
+
+    @CreationTimestamp
     private Date createdAt;
     private String phone;
     @ManyToOne

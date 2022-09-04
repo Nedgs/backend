@@ -1,11 +1,14 @@
 package com.example.lma;
 
+import com.example.lma.model.City;
 import com.example.lma.model.Company;
+import com.example.lma.repos.CityRepository;
 import com.example.lma.repos.CompanyRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -15,11 +18,15 @@ class LmaApplicationTests {
 	@Autowired
 	private CompanyRepository companyRepository;
 
-//	@Test
-//	public void testCreateCompany(){
-//		Company company = new Company(1l,"Google",new Date(),"0747454745");
-//		companyRepository.save(company);
-//	}
+	@Autowired
+	private CityRepository cityRepository;
+	@Test
+	public void testCreateCompany(){
+		City city=  new City(1L, "Rennes",new ArrayList<>());
+		cityRepository.save(city);
+		Company company = new Company(1l,"Google",new Date(),"0747454745",city);
+		companyRepository.save(company);
+	}
 
 	@Test
 	public void testFindCompany(){

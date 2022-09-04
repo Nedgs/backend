@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -25,5 +26,5 @@ public class City {
     private  String name;
     @OneToMany(mappedBy = "city")
     @JsonIgnore
-    private List<Company> companys;
+    private List<Company> companys = new ArrayList<>();
 }
