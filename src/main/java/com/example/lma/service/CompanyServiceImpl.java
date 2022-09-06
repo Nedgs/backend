@@ -2,8 +2,10 @@ package com.example.lma.service;
 
 import com.example.lma.model.City;
 import com.example.lma.model.Company;
+import com.example.lma.model.Sector;
 import com.example.lma.repos.CityRepository;
 import com.example.lma.repos.CompanyRepository;
+import com.example.lma.repos.SectorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,20 +20,23 @@ public class CompanyServiceImpl implements CompanyService {
     @Autowired
     CityRepository cityRepository;
 
+    @Autowired
+    SectorRepository sectorRepository;
+
 
     @Override
-    public Company saveCompany(Company company, String cityName) {
-//        if (cityId == 0){
-//            City city=  new City();
-//            city.setName(cityName);
-//            City savedCity = cityRepository.save(city);
-//            company.setCity(savedCity);
-//
-//        }
-//        if (cityRepository.existsById(cityId)) {
-//            City city = cityRepository.findById(cityId).get();
-//            company.setCity(city);
-//        }
+    public Company saveCompany(Company company, String cityName, Long sectorId) {
+        if (sectorId == 0){
+            Sector sector=  new Sector();
+            sector.setId(sectorId);
+            Sector savedSector = sectorRepository.save(sector);
+            company.setSector(savedSector);
+
+        }
+        if (sectorRepository.existsById(sectorId)) {
+            Sector sector = sectorRepository.findById(sectorId).get();
+            company.setSector(sector);
+        }
 
         if (cityRepository.existsByNameIgnoreCase(cityName)) {
             City city = cityRepository.findByName(cityName).get();

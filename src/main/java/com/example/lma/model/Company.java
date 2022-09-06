@@ -29,4 +29,6 @@ public class Company {
     private String phone;
     @ManyToOne
     private City city;
+    @ManyToOne
+    private Sector sector;
 }
