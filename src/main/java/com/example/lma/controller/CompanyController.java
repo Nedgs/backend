@@ -27,8 +27,8 @@ public class CompanyController {
     }
 
     @PostMapping("company/save")
-    public Company CreateCompany(@RequestBody Company company, @RequestParam(name = "cityName",defaultValue = "Ville") String cityName,  @RequestParam Long sectorId){
-        return companyService.saveCompany(company, cityName, sectorId);
+    public Company CreateCompany(@RequestBody Company company, @RequestParam(name = "cityName",defaultValue = "Ville") String cityName,  @RequestParam Long sectorId, @RequestParam Long countryId){
+        return companyService.saveCompany(company, cityName, sectorId, countryId);
     }
 
     @PutMapping("/company/save")

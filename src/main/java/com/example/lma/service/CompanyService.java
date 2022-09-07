@@ -1,11 +1,12 @@
 package com.example.lma.service;
 
+import com.example.lma.model.City;
 import com.example.lma.model.Company;
 
 import java.util.List;
 
 public interface CompanyService {
-    Company saveCompany(Company company, String cityName, Long sectorId);
+    Company saveCompany(Company company, String cityName, Long sectorId, Long countryId);
     Company updateCompany(Company company, String cityName);
     void deleteCompany(Company company);
     void deleteCompanyById(Long id);
