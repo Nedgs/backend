@@ -23,6 +23,7 @@ public class CompanyController {
 
     @GetMapping("/company/{id}")
     public  Company getCompanyById(@PathVariable("id") Long id){
+
         return companyService.getCompany(id);
     }
 
@@ -38,6 +39,7 @@ public class CompanyController {
 
     @DeleteMapping("/company/delete/{id}")
     public  void deleteCompany(@PathVariable("id") Long id){
+
         companyService.deleteCompanyById(id);
     }
 }
