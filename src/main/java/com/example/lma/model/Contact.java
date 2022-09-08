@@ -26,6 +26,10 @@ public class Contact {
     private  String name;
     private String email;
     private String phone;
+
+    @ManyToOne
+    private Company company;
+
     @CreationTimestamp
     private Date createdAt;
     @UpdateTimestamp

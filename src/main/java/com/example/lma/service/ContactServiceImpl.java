@@ -1,8 +1,10 @@
 package com.example.lma.service;
 
+import com.example.lma.model.Company;
 import com.example.lma.model.Contact;
 import com.example.lma.model.Lifecycle;
 import com.example.lma.model.Sector;
+import com.example.lma.repos.CompanyRepository;
 import com.example.lma.repos.ContactRepository;
 import com.example.lma.repos.LifecycleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +22,12 @@ public class ContactServiceImpl implements ContactService{
     @Autowired
     LifecycleRepository lifecycleRepository;
 
+    @Autowired
+    CompanyRepository companyRepository;
+
 
     @Override
-    public Contact saveContact(Contact contact, Long lifecycleId) {
+    public Contact saveContact(Contact contact, Long lifecycleId, Long companyId) {
 
         if (lifecycleId == 0){
             Lifecycle lifecycle=  new Lifecycle();
@@ -33,6 +38,17 @@ public class ContactServiceImpl implements ContactService{
         if (lifecycleRepository.existsById(lifecycleId)) {
             Lifecycle lifecycle = lifecycleRepository.findById(lifecycleId).get();
             contact.setLifecycle(lifecycle);
+        }
+
+        if (companyId == 0){
+            Company company=  new Company();
+            company.setId(companyId);
+            Company savedCompany = companyRepository.save(company);
+            contact.setCompany(savedCompany);
+        }
+        if (companyRepository.existsById(companyId)) {
+            Company company = companyRepository.findById(companyId).get();
+            contact.setCompany(company);
         }
 
         return contactRepository.save(contact);
