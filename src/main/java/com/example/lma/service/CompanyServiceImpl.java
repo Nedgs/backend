@@ -85,6 +85,7 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public void deleteCompany(Company company) {
+
         companyRepository.delete(company);
     }
 
@@ -95,7 +96,8 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public Company getCompany(Long id) {
-      return companyRepository.findById(id).get();
+
+        return companyRepository.findById(id).get();
     }
 
     @Override

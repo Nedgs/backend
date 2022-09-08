@@ -31,6 +31,9 @@ public class Contact {
     @UpdateTimestamp
     private Date updatedAt;
 
+    @ManyToOne
+    private Lifecycle lifecycle;
+
 //    @ManyToOne
 //    private City city;
 //    @ManyToOne

@@ -28,8 +28,8 @@ public class ContactController {
     }
 
     @PostMapping("/contact/save")
-    public Contact createContact(@RequestBody Contact contact) {
-        return contactService.saveContact(contact);
+    public Contact createContact(@RequestBody Contact contact, @RequestParam Long lifecycleId) {
+        return contactService.saveContact(contact, lifecycleId);
     }
 
     @PutMapping ("/contact/save")

@@ -18,12 +18,12 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Sector {
+public class Lifecycle {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
     private  String name;
-    @OneToMany(mappedBy = "sector")
+    @OneToMany(mappedBy = "lifecycle")
     @JsonIgnore
-    private List<Company> companys;
+    private List<Contact> contacts;
 }
