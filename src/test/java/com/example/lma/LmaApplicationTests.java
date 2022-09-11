@@ -20,13 +20,13 @@ class LmaApplicationTests {
 
 	@Autowired
 	private CityRepository cityRepository;
-	@Test
-	public void testCreateCompany(){
-		City city=  new City(1L, "Rennes",new ArrayList<>());
-		cityRepository.save(city);
-		Company company = new Company(1l,"Google",new Date(),"0747454745",city);
-		companyRepository.save(company);
-	}
+//	@Test
+//	public void testCreateCompany(){
+//		City city=  new City(1L, "Rennes",new ArrayList<>());
+//		cityRepository.save(city);
+//		Company company = new Company(1l,"Google",new Date(),"0747454745",city);
+//		companyRepository.save(company);
+//	}
 
 	@Test
 	public void testFindCompany(){

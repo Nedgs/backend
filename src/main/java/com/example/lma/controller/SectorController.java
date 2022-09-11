@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/sec")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class SectorController {
 
     @Autowired

@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/lifec")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class LifecycleController {
 
     @Autowired

@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/pros")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class ContactController {
 
     @Autowired

@@ -31,7 +31,7 @@ public class Company {
     @ManyToOne
     private Sector sector;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "company",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Contact> contacts;
 }
