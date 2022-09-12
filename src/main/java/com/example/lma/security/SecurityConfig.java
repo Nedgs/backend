@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        http.authorizeRequests().antMatchers("/all").hasAnyAuthority("ADMIN", "MANAGER");
 
 //      Lister tous les utilisateurs
-        http.authorizeRequests().antMatchers("/api/users/all").hasAuthority("ADMIN");
+        http.authorizeRequests().antMatchers("/api/users/all").hasAnyAuthority("ADMIN", "MANAGER");
 
 //      Ajouter un utilisateur
         http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/users/save").hasAuthority("ADMIN");
@@ -46,10 +46,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/users/delete").hasAuthority("ADMIN");
 
         //      Ajouter une company
-        http.authorizeRequests().antMatchers("/api/company/**").hasAnyAuthority("ADMIN", "USER");
+        http.authorizeRequests().antMatchers("/api/company/**").hasAnyAuthority("ADMIN","MANAGER", "USER");
 
         //      edit une company
-        http.authorizeRequests().antMatchers("/api/companys/**").hasAnyAuthority("ADMIN", "USER");
+        http.authorizeRequests().antMatchers("/api/companys/**").hasAnyAuthority("ADMIN","MANAGER", "USER");
 
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilter(new JWTAuthenticationFilter(authenticationManager()));

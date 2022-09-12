@@ -34,6 +34,7 @@ public class ContactController {
 
     @PutMapping ("/contact/save")
     public Contact updateContact(@RequestBody Contact contact) {
+
         return contactService.updateContact(contact);
     }
 
